@@ -1,0 +1,92 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(java -version)",
+      "Bash(gradle --version)",
+      "Bash(curl -s https://start.spring.io/starter.zip -d type=gradle-project-kotlin -d language=kotlin -d bootVersion=3.2.5 -d baseDir=backend -d groupId=com.qusign -d artifactId=qusign -d name=qusign -d 'description=PQC Electronic Signature Service' -d packageName=com.qusign -d packaging=jar -d javaVersion=21 -d dependencies=web,data-jpa,security,actuator,validation,mariadb -o /tmp/qusign-init.zip)",
+      "Bash(unzip -q /tmp/qusign-init.zip)",
+      "Bash(curl -s https://start.spring.io/starter.zip -d type=gradle-project-kotlin -d language=kotlin -d bootVersion=3.4.5 -d baseDir=backend -d groupId=com.qusign -d artifactId=qusign -d name=qusign -d 'description=PQC Electronic Signature Service' -d packageName=com.qusign -d packaging=jar -d javaVersion=21 -d dependencies=web,data-jpa,security,actuator,validation,mariadb -o /tmp/qusign-init.zip)",
+      "Bash(curl -s https://start.spring.io/starter.zip -d type=gradle-project-kotlin -d language=kotlin -d bootVersion=3.5.0 -d baseDir=backend -d groupId=com.qusign -d artifactId=qusign -d name=qusign -d 'description=PQC Electronic Signature Service' -d packageName=com.qusign -d packaging=jar -d javaVersion=21 -d dependencies=web,data-jpa,security,actuator,validation,mariadb -o /tmp/qusign-init.zip)",
+      "Bash(./gradlew test *)",
+      "Bash(JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot\" ./gradlew test --no-daemon)",
+      "Bash(curl -s \"https://search.maven.org/solrsearch/select?q=g:org.bouncycastle+AND+a:bcpqc-jdk18on&rows=5&wt=json\")",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(d['latestVersion']\\) for d in data['response']['docs']]\")",
+      "Bash(curl -s \"https://search.maven.org/solrsearch/select?q=g:org.bouncycastle+AND+a:bcpqc-jdk18on&rows=1&wt=json\")",
+      "Bash(curl -s \"https://repo1.maven.org/maven2/org/bouncycastle/bcpqc-jdk18on/maven-metadata.xml\")",
+      "Bash(curl -s \"https://repo1.maven.org/maven2/org/bouncycastle/bcpqc-jdk18on/\")",
+      "Bash(curl -sv \"https://repo1.maven.org/maven2/org/bouncycastle/bcpqc-jdk18on/1.78/bcpqc-jdk18on-1.78.jar\")",
+      "Bash(curl -sv \"https://repo1.maven.org/maven2/org/bouncycastle/bcpqc-jdk18on/1.78.1/bcpqc-jdk18on-1.78.1.jar\")",
+      "Bash(curl -sv \"https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/1.78.1/bcprov-jdk18on-1.78.1.jar\")",
+      "Bash(curl -s \"https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/\")",
+      "Bash(curl -sv \"https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/1.79/bcprov-jdk18on-1.79.jar\")",
+      "Bash(curl -s \"https://repo1.maven.org/maven2/org/bouncycastle/\")",
+      "Bash(curl -sv \"https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/1.78/bcprov-jdk18on-1.78.jar\")",
+      "Bash(curl -sv \"https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar\")",
+      "Bash(./gradlew dependencies *)",
+      "Bash(curl -s -o /tmp/bcprov-1.84.jar \"https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar\")",
+      "Bash(jar tf *)",
+      "Bash(grep -v \"\\\\.class$\")",
+      "Bash(jar xf *)",
+      "Bash(javap -c /tmp/org/bouncycastle/jcajce/spec/MLDSAParameterSpec.class)",
+      "Bash(./gradlew compileKotlin --no-daemon)",
+      "Bash(xargs grep *)",
+      "Bash(docker info *)",
+      "Bash(docker compose *)",
+      "Bash(git -C e:/dev/QuSign diff)",
+      "Bash(git -C e:/dev/QuSign status)",
+      "Bash(git -C e:/dev/QuSign diff .claude/settings.json)",
+      "Bash(grep -E \"\\\\.\\(gradle|properties|yml|yaml|xml|md\\)$\")",
+      "Bash(./gradlew build *)",
+      "Bash(git -C frontend status --short)",
+      "Bash(dir \"e:\\\\dev\\\\QuSign\\\\frontend\\\\src\")",
+      "PowerShell(docker info 2>&1)",
+      "PowerShell(mysql -u root -proot -e \"SHOW DATABASES LIKE 'qusign';\" 2>&1)",
+      "PowerShell(mysql -u root -proot -e \"CREATE DATABASE IF NOT EXISTS qusign CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\" 2>&1)",
+      "PowerShell(curl -s http://localhost:8080/actuator/health)",
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:8080/actuator/health\")",
+      "PowerShell($proc = Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty OwningProcess; if \\($proc\\) { Stop-Process -Id $proc -Force; Write-Output \"PID $proc 종료 완료\" } else { Write-Output \"8080 포트 프로세스 없음\" })",
+      "Bash(curl -s http://localhost:8080/api/documents -H \"Authorization: Bearer test\")",
+      "Bash(curl -s -w \"\\\\nHTTP_STATUS:%{http_code}\" http://localhost:8080/api/documents -H \"Authorization: Bearer test\")",
+      "Bash(curl -s http://localhost:9000/minio/health/live)",
+      "Bash(curl -s -u minioadmin:minioadmin \"http://localhost:9000/\")",
+      "Bash(docker exec *)",
+      "Bash(Get-ChildItem -Path \"e:\\\\dev\\\\QuSign\" -Recurse -Directory)",
+      "Bash(Select-Object -First 50 FullName)",
+      "Bash(Get-ChildItem -Path \"e:\\\\dev\\\\QuSign\\\\backend\\\\src\\\\main\\\\kotlin\\\\com\\\\qusign\" -Recurse -File)",
+      "Bash(Select-Object FullName)",
+      "PowerShell(docker compose -f e:\\\\dev\\\\QuSign\\\\docker-compose.yml ps)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue | Select-Object LocalAddress, LocalPort, OwningProcess, State | ForEach-Object { $_ | Add-Member -NotePropertyName ProcessName -NotePropertyValue \\(Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue\\).Name -PassThru })",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/actuator/health)",
+      "PowerShell($conn = Get-NetTCPConnection -LocalPort 8080 -State Listen -ErrorAction SilentlyContinue; if \\($conn\\) { $pid8080 = $conn.OwningProcess; $name = \\(Get-Process -Id $pid8080 -ErrorAction SilentlyContinue\\).Name; Stop-Process -Id $pid8080 -Force; \"Killed PID $pid8080 \\($name\\)\" } else { \"No process on 8080\" })",
+      "Bash(git -C e:/dev/QuSign diff --stat)",
+      "Bash(./gradlew compileKotlin)",
+      "Bash(git -C e:/dev/QuSign add backend/src/main/kotlin/com/qusign/document/exception/DocumentExceptions.kt backend/src/main/kotlin/com/qusign/common/exception/GlobalExceptionHandler.kt backend/src/main/kotlin/com/qusign/document/service/DocumentService.kt backend/src/main/kotlin/com/qusign/document/controller/DocumentController.kt backend/src/main/kotlin/com/qusign/signature/dto/SignatureDtos.kt backend/src/main/kotlin/com/qusign/signature/service/SignatureFlowService.kt backend/src/main/kotlin/com/qusign/signature/controller/SignatureController.kt)",
+      "Bash(git -C e:/dev/QuSign commit -m \"feat: 문서·서명 요청 배치 API 구현\")",
+      "Bash(git -C e:/dev/QuSign add backend/src/test/kotlin/com/qusign/QusignApplicationTests.kt backend/src/test/kotlin/com/qusign/auth/service/AuthServiceTest.kt backend/src/test/kotlin/com/qusign/document/service/DocumentServiceTest.kt backend/src/test/kotlin/com/qusign/signature/service/PdfSignatureServiceTest.kt backend/src/test/kotlin/com/qusign/signature/service/PqcSignatureServiceTest.kt backend/src/test/kotlin/com/qusign/signature/service/SignatureFlowServiceTest.kt)",
+      "Bash(git -C e:/dev/QuSign commit -m \"fix: 테스트 MockitoBean EmailService·StorageService 누락 수정\")",
+      "Bash(Get-ChildItem -Path \"e:\\\\dev\\\\QuSign\\\\frontend\\\\src\" -Recurse -Include \"*.vue\")",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Get-ChildItem -Path \"e:\\\\dev\\\\QuSign\\\\backend\\\\src\\\\main\\\\kotlin\\\\com\\\\qusign\" -Recurse -Directory)",
+      "PowerShell(ls -r \"e:\\\\dev\\\\QuSign\\\\backend\\\\src\\\\main\\\\kotlin\\\\com\\\\qusign\" -Directory)",
+      "Bash(git add *)",
+      "Bash(git -C /e/dev/QuSign add frontend/src/views/HomeView.vue frontend/src/views/DashboardView.vue frontend/src/views/AccountSettingsView.vue frontend/src/views/DocumentDetailView.vue frontend/src/views/RequestView.vue)",
+      "Bash(git -C /e/dev/QuSign commit -m ' *)",
+      "Bash(git -C /e/dev/QuSign status)",
+      "Bash(git -C /e/dev/QuSign diff .claude/settings.json)"
+    ]
+  },
+  "model": "sonnet",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat | grep -q '&& git ' && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"allow\"}}' || echo '{}'"
+          }
+        ]
+      }
+    ]
+  }
+}
