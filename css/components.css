@@ -1,0 +1,42 @@
+/* slide-6 — Claude AX 카드 */
+.ax-grid { flex: 1 1 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.ax-card { border: 1px solid var(--hairline); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #fff; }
+.ax-top { background: var(--sig); padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 10px; }
+.ax-k { font-family: var(--mono); font-size: var(--type-caption-sm); letter-spacing: 0.06em; font-weight: 500; }
+.ax-head { font-size: 38px; font-weight: 700; line-height: 1.22; letter-spacing: -0.015em; margin: 6px 0 4px; }
+.ax-top .label { font-size: 20px; font-weight: 450; line-height: 1.35; }
+.ax-top .label b { font-weight: 700; }
+.ax-body { flex: 1 1 auto; padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 18px; }
+.ax-chips { margin-top: auto; gap: 8px; flex-wrap: nowrap; }
+.ax-chips .chip { font-size: var(--type-micro); padding: 8px 12px; }
+.ax-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.ax-list li { font-size: 21px; line-height: 1.45; color: var(--muted-strong); padding-left: 16px; position: relative; }
+.ax-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--ink); }
+
+/* slide-4 — Inno Setup 라이프사이클 패널 */
+.lc-panel {
+  background: rgba(200, 230, 205, 0.22); border: 1.5px solid var(--mint); border-radius: 20px;
+  padding: 26px 30px; display: flex; flex-direction: column; gap: 18px;
+}
+.stage {
+  background: #fff; border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 14px;
+  padding: 18px 22px; display: flex; flex-direction: column; gap: 6px;
+}
+.stage .sn { font-family: var(--mono); font-size: var(--type-micro); letter-spacing: 0.06em; color: var(--mint-ink); }
+.stage .st { font-size: var(--type-headline-sm); font-weight: 600; }
+.stage .sd { font-size: 20px; line-height: 1.45; color: var(--muted-strong); word-break: keep-all; }
+
+/* slide-4 — 배포 용량 막대 */
+.sizebar { display: flex; align-items: center; gap: 16px; }
+.sizebar .sk { font-family: var(--mono); font-size: var(--type-micro); letter-spacing: 0.06em; color: var(--muted-weak); flex: 0 0 72px; }
+.sizebar .track { flex: 1 1 auto; height: 14px; border-radius: 7px; background: rgba(0, 0, 0, 0.05); overflow: hidden; }
+.sizebar .track span { display: block; height: 100%; border-radius: 7px; }
+.sizebar .sv { font-family: var(--mono); font-size: 18px; font-weight: 500; flex: 0 0 96px; text-align: right; }
+
+/* slide-5 — 보안 계층 */
+.layer {
+  background: var(--tint); border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 14px;
+  padding: 22px 28px; display: flex; align-items: baseline; gap: 20px;
+}
+.layer .lk { font-weight: 700; font-size: var(--type-headline-sm); flex: 0 0 64px; }
+.layer .lv { font-size: var(--type-body-sm); line-height: 1.4; }

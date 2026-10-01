@@ -1,0 +1,338 @@
+/* =========================================================
+   곽채원 포트폴리오 — 디자인 시스템
+   흰 캔버스 + 파스텔 점 액센트 + 서사
+   ========================================================= */
+
+:root {
+  /* color tokens */
+  --ink: #000000;
+  --canvas: #ffffff;
+  --hairline: #e6e6e6;
+  --surface: #f7f7f5;
+  --lilac: #c5b0f4;
+  --mint: #c8e6cd;
+  --mint-ink: #3d7f52;  /* mint 면 위/옆에 쓰는 진한 톤 */
+  --pink: #efd4d4;
+  --lime: #dceeb1;
+  --cream: #f4ecd6;
+  --pos: #2f9e5f;   /* 의미 색: 긍정(작은 아이콘 한정) */
+  --neg: #c96a6a;   /* 의미 색: 부정(작은 아이콘 한정) */
+
+  /* 보조 텍스트 3단계. 이전에는 #333·#444·#555·#777·#888·#999 6종이
+     하드코딩돼 역할별 톤이 제각각이었다. 흰 배경 기준 명암비를 함께 적는다. */
+  --muted-strong: #333333;  /* 12.6:1 — 본문 보조 */
+  --muted: #555555;         /*  7.5:1 — 라벨 */
+  --muted-weak: #777777;    /*  4.5:1 — 마이크로 라벨(15px 이하는 경계값) */
+
+  /* type scale (16:9 투사) */
+  --type-display: 80px;
+  --type-number: 116px;
+  --type-hero: 56px;
+  --type-headline: 36px;
+  --type-body-lg: 28px;
+  --type-body: 24px;
+  --type-eyebrow: 24px;
+  --type-caption: 24px;
+  --type-headline-sm: 28px;
+  --type-body-sm: 22px;
+  --type-caption-sm: 16px;
+  --type-chip-sm: 17px;
+  --type-micro: 15px;
+
+  /* weight */
+  --w-display: 600;
+  --w-head: 600;
+  --w-num: 560;
+  --w-body: 400;
+  --w-light: 360;
+
+  /* layout */
+  --pad-x: 120px;
+  --pad-top: 116px;
+  --pad-bottom: 116px;
+  --gap-title: 44px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+deck-stage:not(:defined) { visibility: hidden; }
+
+/* 슬라이드는 <slot>으로 deck-stage의 shadow DOM에 들어간다. flattened tree에서
+   상속은 body가 아니라 host를 타고 내려오는데, 런타임의 :host 규칙이 자체
+   font-family(-apple-system … Arial)를 선언하고 있어 아래 body 규칙만으로는
+   Pretendard가 슬라이드에 닿지 않는다. 문서 스타일은 :host보다 우선하므로
+   host 엘리먼트에 직접 지정해 상속 경로를 되돌린다. */
+deck-stage { font-family: var(--sans); }
+
+body {
+  margin: 0;
+  background: #0a0a0a;
+  font-family: var(--sans);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+section {
+  background: var(--canvas);
+  overflow: hidden;
+}
+
+/* every slide gets a padded frame */
+.frame {
+  width: 100%;
+  height: 100%;
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+}
+
+/* ---- text primitives (Korean line-break safe) ---- */
+.display, .hero, .headline, .body-lg, .body, .eyebrow, .caption, p, h1, h2, h3, li {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  margin: 0;
+}
+.nowrap { white-space: nowrap; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: var(--type-eyebrow);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow .dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--sig, var(--ink));
+  display: inline-block;
+}
+
+.display {
+  font-size: var(--type-display);
+  font-weight: var(--w-display);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.display .ul {
+  box-shadow: inset 0 -0.14em 0 var(--sig, var(--lilac));
+  padding-bottom: 0.02em;
+}
+
+.hero {
+  font-size: var(--type-hero);
+  font-weight: var(--w-head);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.headline {
+  font-size: var(--type-headline);
+  font-weight: var(--w-head);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+}
+.body-lg {
+  font-size: var(--type-body-lg);
+  font-weight: var(--w-light);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.body {
+  font-size: var(--type-body);
+  font-weight: var(--w-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.caption {
+  font-family: var(--mono);
+  font-size: var(--type-caption);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* ---- number tile ---- */
+.tile {
+  background: var(--tile, var(--surface));
+  border-radius: 22px;
+  padding: 32px 34px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+.tile .num {
+  font-size: var(--type-number);
+  font-weight: var(--w-num);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+}
+.tile .num .suffix { font-size: 0.42em; font-weight: 600; margin-left: 0.04em; letter-spacing: -0.01em; }
+.tile .label {
+  font-size: var(--type-body);
+  font-weight: 450;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+/* tile sizes used inline via classes */
+.tile.sm { padding: 26px 28px 24px; border-radius: 18px; }
+.tile.sm .num { font-size: 76px; }
+.tile.sm .num .suffix { font-size: 0.4em; }
+.tile.sm .label { font-size: var(--type-body); }
+
+/* ---- stat (타일 없는 수치 — 표지용) ----
+   .tile 과 같은 데이터를 다루지만 색면 대신 헤어라인 + 점 액센트로 조판한다. */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat {
+  padding-left: 36px;
+  border-left: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stat:first-child { padding-left: 0; border-left: 0; }
+.stat .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--sig, var(--ink));
+}
+.stat .num {
+  font-size: 74px;
+  font-weight: var(--w-num);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+}
+.stat .num .suffix {
+  font-size: 0.34em; font-weight: 600;
+  margin-left: 0.07em; letter-spacing: -0.01em;
+}
+.stat .label {
+  font-size: var(--type-body-sm);
+  font-weight: 450;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* ---- chips ---- */
+.chips { display: flex; flex-wrap: wrap; gap: 14px; }
+.chip {
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: var(--type-body);
+  font-weight: 450;
+  line-height: 1;
+  white-space: nowrap;
+}
+.chip.mono { font-family: var(--mono); font-size: var(--type-body); letter-spacing: 0.01em; }
+.headline.sm { font-size: var(--type-headline-sm); }
+.chip.sm { font-size: var(--type-chip-sm); padding: 10px 15px; }
+
+/* tag (cream label) */
+.tag {
+  font-family: var(--mono);
+  font-size: var(--type-eyebrow);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: var(--tag, var(--cream));
+  border-radius: 8px;
+  padding: 7px 14px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* group label */
+.glabel {
+  font-family: var(--mono);
+  font-size: var(--type-eyebrow);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: var(--sig, var(--lilac));
+  border-radius: 8px;
+  padding: 6px 13px;
+  align-self: flex-start;
+}
+
+/* hairline divider */
+.rule { height: 1px; background: var(--hairline); border: 0; width: 100%; }
+
+/* bottom emphasis line */
+.kicker {
+  font-size: var(--type-headline);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.kicker .mark { box-shadow: inset 0 -0.12em 0 var(--sig, var(--lilac)); }
+
+/* =========================================================
+   MOTION
+   ========================================================= */
+.anim, .scin, .line-x, .line-y { will-change: transform, opacity, filter; }
+
+/* Base = final VISIBLE state. The hidden start states live inside the
+   no-preference query + animation keyframes, so print, reduced-motion,
+   and any environment without live animation timelines show content. */
+@media (prefers-reduced-motion: no-preference) {
+  .line-x { transform-origin: left center; }
+  .line-y { transform-origin: top center; }
+
+  [data-deck-active] .anim {
+    animation: blurUp 0.6s var(--ease) both;
+    animation-delay: var(--d, 0s);
+  }
+  [data-deck-active] .scin {
+    animation: scaleIn 0.5s var(--ease) both;
+    animation-delay: var(--d, 0s);
+  }
+  [data-deck-active] .line-x {
+    animation: drawX 0.7s var(--ease) both;
+    animation-delay: var(--d, 0s);
+  }
+  [data-deck-active] .line-y {
+    animation: drawY 0.7s var(--ease) both;
+    animation-delay: var(--d, 0s);
+  }
+}
+
+@keyframes blurUp {
+  from { opacity: 0; transform: translateY(16px); filter: blur(8px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes drawX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes drawY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* reduced motion + print => final state */
+@media (prefers-reduced-motion: reduce) {
+  .anim, .scin { opacity: 1; transform: none; filter: none; }
+  .line-x, .line-y { transform: none; }
+}
+@media print {
+  .anim, .scin { opacity: 1 !important; transform: none !important; filter: none !important; }
+  .line-x, .line-y { transform: none !important; }
+}
