@@ -44,7 +44,7 @@
 | Infra | Docker, Jenkins, RPM, Inno Setup, Apache, AWS, Redis, Qdrant |
 | Tool | Claude Code, Claude Design, Notion, Git |
 
-**Certification** · 정보처리기사 · SQLD · AWS Solutions Architect – Associate · 컴퓨터활용능력 1급 · 1종 보통운전면허
+**Certification** · 정보처리기사 · SQLD · AWS Solutions Architector Associate · 컴퓨터활용능력 1급 · 1종 보통운전면허
 
 **Awards** · KT AIVLE Big Project 우수상 · 순천향대 3분 독후감 스피치 장려상 · 우수 사회복무요원 표창
 
