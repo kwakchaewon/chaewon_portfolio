@@ -54,7 +54,10 @@
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --mono: "JetBrains Mono", ui-monospace, monospace;
+  /* JetBrains Mono 에는 한글이 없다. Pretendard 를 뒤에 두지 않으면
+     "2024.02 – 현재" 같은 mono 캡션의 한글만 시스템 폰트(Windows: 굴림체)로
+     떨어진다. 라틴·숫자는 JetBrains Mono, 한글은 Pretendard 로 받는다. */
+  --mono: "JetBrains Mono", "Pretendard Variable", ui-monospace, monospace;
   --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     "Apple SD Gothic Neo", system-ui, sans-serif;
 }
