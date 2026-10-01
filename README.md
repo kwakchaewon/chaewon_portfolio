@@ -55,25 +55,47 @@
 
 ```
 .
-├── index.html              # 포트폴리오 단일 페이지 (에셋이 인라인 번들된 빌드 산출물)
-├── assets/                 # OG 이미지 · 파비콘
+├── index.html              # 슬라이드 마크업 (7장)
+├── css/
+│   ├── fonts.css           # Pretendard · JetBrains Mono @font-face
+│   ├── design-system.css   # 디자인 토큰 · 텍스트 프리미티브 · 모션
+│   └── components.css      # 슬라이드별 컴포넌트
+├── js/
+│   ├── deck-stage.js       # <deck-stage> 웹 컴포넌트 (레일 · 스케일 · 인쇄)
+│   └── countup.js          # 수치 카운트업
+├── assets/
+│   ├── fonts/              # woff2 (Pretendard Variable · JetBrains Mono 6종)
+│   ├── profile.jpg         # 프로필 사진
+│   └── ...                 # OG 이미지 · 파비콘
 ├── docs/
 │   └── 곽채원 · 포트폴리오.pdf   # PDF 버전
 ├── robots.txt
 └── sitemap.xml
 ```
 
-`index.html`은 이미지·폰트가 base64로 포함된 단일 파일 번들입니다. 페이지 로드 시 번들 로더가 에셋을 Blob URL로 풀어 렌더링하므로 별도 빌드나 의존성 설치가 필요 없습니다.
+빌드 단계나 의존성 설치가 없습니다. 정적 파일을 그대로 서빙하면 됩니다.
 
 <br>
 
 ## 로컬에서 보기
 
-파일을 직접 열어도 되지만, 상대 경로 에셋(파비콘·OG 이미지)까지 확인하려면 로컬 서버를 권장합니다.
+웹폰트와 스크립트가 상대 경로로 로드되므로 **로컬 서버가 필요합니다.** `file://`로 직접 열면 폰트가 적용되지 않습니다.
 
 ```bash
 python -m http.server 8000
 # http://localhost:8000
+```
+
+<br>
+
+## PDF 내보내기
+
+`docs/` 의 PDF는 브라우저 인쇄로 만듭니다. `deck-stage.js`가 `@page` 크기(1920×1080)와 인쇄용 스타일을 주입하므로 슬라이드 1장이 PDF 1쪽이 됩니다.
+
+반드시 **`http://localhost:8000` 에서 인쇄**하세요. `file://`에서는 웹폰트가 차단되어 시스템 폰트로 출력됩니다.
+
+```
+Chrome → 인쇄 → 대상: PDF로 저장 → 여백: 없음 → 배경 그래픽: 켬
 ```
 
 <br>
