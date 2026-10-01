@@ -1,5 +1,8 @@
 /* slide-6 — Claude AX 카드 */
-.ax-grid { flex: 1 1 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+/* align-content: start — 카드 행을 내용 높이에 맞춘다. 없으면 .frame 이 내준
+   세로 공간만큼 행이 늘어나고, .ax-chips 의 margin-top:auto 가 칩을 바닥으로
+   밀어 불릿 목록과 칩 사이가 크게 벌어진다. */
+.ax-grid { flex: 1 1 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-content: center; }
 .ax-card { border: 1px solid var(--hairline); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #fff; }
 .ax-top { background: var(--sig); padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 10px; }
 .ax-k { font-family: var(--mono); font-size: var(--type-caption-sm); letter-spacing: 0.06em; font-weight: 500; }
