@@ -34,9 +34,6 @@
 | 03 | Notion MCP · 문서 작성 파이프라인 구축 | 자연어를 통한 일관된 템플릿 기반 문서 작성 | 노션 개발 문서 템플릿 표준 정의, 고객사별 히스토리 · 릴리즈 노트 등 자연어로 자동 작성, 작성된 문서 · 보고를 노션 DB에 이력화 |
 | 04 | openKB · 문서를 위키로 컴파일하는 NoRAG 챗봇 | 문서 1,252건 지식화 · 재청킹 일치율 98.4% | Qdrant 역추적으로 유실 원본 .md 52개 무손실 복원, LLM 없는 결정론적 전처리 도구 개발, 골든셋 A/B · LLM-as-Judge 평가 |
 
-### Side Project
-**[QuSign](https://qusign.link)** — 양자 컴퓨터에도 안전한 암호(PQC)로 만든 전자서명 SaaS. AWS 기반 운영형 인프라를 비용·보안·모니터링까지 직접 구성했습니다.
-
 <br>
 
 ## 기술 스택
@@ -46,7 +43,7 @@
 | Language | Java, Kotlin, Python, Shell |
 | Backend | Spring Boot, Django, Vue, Tailwind |
 | Infra | Docker, Jenkins, RPM, Inno Setup, Apache, AWS, Redis, Qdrant |
-| Tool | Claude Code, Claude Design, Claude Security, Notion, Git |
+| Tool | Claude Code, Claude Design, Notion, Git |
 
 **Certification** · 정보처리기사 · SQLD · AWS Solutions Architect – Associate · 컴퓨터활용능력 1급 · 1종 보통운전면허
 
