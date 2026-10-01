@@ -95,24 +95,26 @@
     <div class="frame">
       <h1 class="display anim" style="--d:.2s; margin-bottom: var(--gap-title);">개요</h1>
 
-      <div style="flex: 1 1 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 88px;">
+      <!-- 2행 그리드: EXPERIENCE 라벨은 1행, 경력·스택 본문은 2행에 나란히 놓여
+           날짜 caption 과 스택 분류 caption 이 같은 높이에서 시작한다. -->
+      <div style="flex: 1 1 auto; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; gap: 28px 88px;">
         <!-- EXPERIENCE -->
-        <div style="display: flex; flex-direction: column; gap: 30px;">
-          <p class="eyebrow anim" style="--d:.4s;">EXPERIENCE</p>
+        <p class="eyebrow anim" style="--d:.4s; grid-column: 1 / -1;">EXPERIENCE</p>
+        <div>
           <div style="display: flex; gap: 28px;">
             <div class="line-y" style="--d:.4s; width: 2px; background: var(--ink); flex: 0 0 auto; border-radius: 2px;"></div>
             <div style="display: flex; flex-direction: column; gap: 28px;">
               <div class="anim" style="--d:.6s;">
-                <p class="caption" style="margin-bottom: 8px;">2024.02 – 현재</p>
+                <p class="caption" style="margin-bottom: 12px;">2024.02 – 현재</p>
                 <p class="headline">이든티앤에스 기술연구소</p>
                 <p class="body" style="margin-top: 4px;">백엔드 · 기술 지원 담당</p>
               </div>
               <div class="anim" style="--d:.74s;">
-                <p class="caption" style="margin-bottom: 8px;">2023</p>
+                <p class="caption" style="margin-bottom: 12px;">2023</p>
                 <p class="headline">KT AIVLE School 수료</p>
               </div>
               <div class="anim" style="--d:.88s;">
-                <p class="caption" style="margin-bottom: 8px;">2019.08 – 2020.08</p>
+                <p class="caption" style="margin-bottom: 12px;">2019.08 – 2020.08</p>
                 <p class="headline">태화이노베이션 SI 3팀</p>
               </div>
             </div>
@@ -120,9 +122,8 @@
         </div>
 
         <!-- STACK -->
-        <div style="display: flex; flex-direction: column; gap: 26px;">
-          <p class="eyebrow anim" style="--d:.5s;">STACK</p>
-          <div style="display: flex; flex-direction: column; gap: 22px;">
+        <div>
+          <div style="display: flex; flex-direction: column; gap: 28px;">
             <div class="anim" style="--d:.7s;">
               <p class="caption" style="margin-bottom: 12px;">Language</p>
               <div class="chips">
@@ -155,7 +156,7 @@
       </div>
 
       <!-- bottom band -->
-      <hr class="rule line-x" style="--d:1.5s; margin: 36px 0 28px;">
+      <hr class="rule line-x" style="--d:1.5s; margin: 40px 0 28px;">
       <div style="display: grid; grid-template-columns: auto 1fr; gap: 22px 28px; align-items: start;">
         <span class="tag anim" style="--d:1.7s;">CERTIFICATION</span>
         <p class="body anim" style="--d:1.78s;">정보처리기사 · SQLD · AWS Solutions Architect – Associate · 컴퓨터활용능력 1급 · 1종 보통운전면허</p>
