@@ -38,7 +38,7 @@
 | Infra | Docker, Jenkins, RPM, Apache, AWS, Redis |
 | Tool | Claude Design, Claude Security, Notion, Git |
 
-**Certification** · 정보처리기사 · SQLD · AWS Cloud Practitioner · 컴퓨터활용능력 1급 · 정보처리산업기사
+**Certification** · 정보처리기사 · SQLD · AWS Solutions Architect – Associate · 컴퓨터활용능력 1급
 
 <br>
 
