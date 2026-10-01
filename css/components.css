@@ -6,7 +6,7 @@
 /* 카드는 헤더·본문 2행을 subgrid 로 공유한다 — 제목 줄 수나 불릿 개수가 달라도
    4장의 헤더 높이와 카드 높이가 같은 행 기준으로 맞춰진다. */
 /* 본문 행에 최소 높이를 주어 카드 전체를 키운다 — 내용이 더 길면 auto 로 늘어난다. */
-.ax-grid { flex: 1 1 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto minmax(300px, auto); column-gap: 24px; row-gap: 0; align-content: center; }
+.ax-grid { flex: 1 1 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto minmax(380px, auto); column-gap: 24px; row-gap: 0; align-content: center; }
 .ax-card { grid-row: span 2; display: grid; grid-template-rows: subgrid; border: 1px solid var(--hairline); border-radius: 20px; overflow: hidden; background: #fff; }
 .ax-top { background: var(--sig); padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 10px; }
 .ax-k { font-family: var(--mono); font-size: var(--type-caption-sm); letter-spacing: 0.06em; font-weight: 500; }
