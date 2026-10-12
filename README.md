@@ -22,7 +22,7 @@
 | --- | --- | --- | --- |
 | 01 | 표준 Oracle 환경 대응 리팩토링 | 2024.04 – 2025.11 | MariaDB + MyBatis → JPA + QueryDSL 전환. Oracle 기준 DDL 재설계, 동적 쿼리 표준화, batch flush·clear 메모리 안정화로 DB 교체 시 수정 범위 축소 |
 | 02 | RPM · Inno Setup 기반 설치 패키지 표준화 | 2025.01 – 2025.04<br>2026.06 – 2026.08 | [Windows] Inno Setup 7 단일 .exe로 설치·업데이트·IP/포트 변경·언인스톨 라이프사이클 전 구간 관리(PowerShell · NSSM 서비스 등록), [Linux] rpmbuild 기반 8개 OS 대상 설치 자동화. 설치·장애 대응 비용 90% 이상 절감, 배포 용량 53% 최적화(1,893MB → 887MB) |
-| 03 | 행정안전부 기준 보안 취약점 대응 | 2025.08 – 2025.12 | 「주요정보통신기반시설 기술적 취약점 분석·평가 방법(2021)」 기준으로 Web · WAS · DB · OS 4개 계층 점검 및 조치 |
+| 03 | 과기정통부 기준 보안 취약점 대응 | 2025.08 – 2025.12 | 「주요정보통신기반시설 기술적 취약점 분석·평가 방법(2021)」 기준으로 Web · WAS · DB · OS 4개 계층 점검 및 조치 |
 
 ### AX 업무 전환 케이스
 
@@ -44,9 +44,9 @@
 | Infra | Docker, Jenkins, RPM, Inno Setup, Apache, AWS, Redis, Qdrant |
 | Tool | Claude Code, Claude Design, Notion, Git |
 
-**Certification** · 정보처리기사 · SQLD · AWS Solutions Architector Associate · 컴퓨터활용능력 1급 · 1종 보통운전면허
+**Certification** · 정보처리기사 · SQLD · AWS Solutions Architect Associate · 컴퓨터활용능력 1급 · 1종 보통운전면허
 
-**Awards** · KT AIVLE Big Project 우수상 · 순천향대 3분 독후감 스피치 장려상 · 우수 사회복무요원 표창
+**Awards** · AIVLE 빅프로젝트 장려상 · 순천향대 독후감 스피치 대회 장려상 · 우수 사회복무요원 표창
 
 <br>
 
