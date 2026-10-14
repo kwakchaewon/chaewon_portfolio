@@ -39,10 +39,10 @@
 
 | 분류 | 사용 기술 |
 | --- | --- |
-| Language | Java, Kotlin, Python, Shell |
-| Backend | Spring Boot, Django, Vue, Tailwind |
+| Language | Java, Kotlin, Python |
+| Framework | Spring Boot, Django, Vue |
 | Infra | Docker, Jenkins, RPM, Inno Setup, Apache, AWS, Redis, Qdrant |
-| Tool | Claude Code, Claude Design, Notion, Git |
+| Tool | Claude Code & Design, Notion, Git |
 
 **Certification** · 정보처리기사 · SQLD · AWS Solutions Architect Associate · 컴퓨터활용능력 1급 · 1종 보통운전면허
 
