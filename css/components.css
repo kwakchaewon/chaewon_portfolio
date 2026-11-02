@@ -1,4 +1,4 @@
-/* slide-7 — AX 업무 전환 카드 */
+/* slide-8 — AI 활용 카드 */
 /* align-content — 카드 행을 내용 높이에 맞춰 남은 공간 가운데 둔다. 없으면
    .frame 이 내준 세로 공간만큼 행이 늘어나고, .ax-chips 의 margin-top:auto 가
    칩을 바닥으로 밀어 불릿 목록과 칩 사이가 크게 벌어진다. 이 슬라이드만
@@ -18,18 +18,21 @@
 .ax-list li { font-size: 21px; line-height: 1.45; color: var(--muted-strong); padding-left: 16px; position: relative; }
 .ax-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--ink); }
 
-/* slide-4 — Inno Setup 라이프사이클 패널 */
-.lc-panel {
+/* slide-4 — RPM · Inno Setup 비교표 */
+.cmp {
   background: rgba(200, 230, 205, 0.22); border: 1.5px solid var(--mint); border-radius: 20px;
-  padding: 26px 30px; display: flex; flex-direction: column; gap: 18px;
+  padding: 26px 30px; display: grid; grid-template-columns: 112px 1fr 1fr; column-gap: 24px; align-content: start;
 }
-.stage {
-  background: #fff; border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 14px;
-  padding: 18px 22px; display: flex; flex-direction: column; gap: 6px;
-}
-.stage .sn { font-family: var(--mono); font-size: var(--type-micro); letter-spacing: 0.06em; color: var(--mint-ink); }
-.stage .st { font-size: var(--type-headline-sm); font-weight: 600; }
-.stage .sd { font-size: 20px; line-height: 1.45; color: var(--muted-strong); word-break: keep-all; }
+.cmp > * { padding: 16px 0; border-top: 1px solid rgba(0, 0, 0, 0.07); }
+.cmp > :nth-child(-n+3) { border-top: 0; padding-top: 0; }
+.cmp-h { display: flex; flex-direction: column; gap: 10px; }
+.cmp-h .glabel { font-size: 19px; }
+.cmp-sub { font-family: var(--mono); font-size: var(--type-micro); letter-spacing: 0.04em; color: var(--mint-ink); }
+.cmp-k { font-family: var(--mono); font-size: var(--type-caption-sm); letter-spacing: 0.06em; color: var(--muted); padding-top: 19px; }
+.cmp-v { font-size: 21px; line-height: 1.45; color: var(--muted-strong); word-break: keep-all; }
+.cmp-v b { font-weight: 650; color: var(--ink); }
+.cmp-na { color: var(--muted-weak); }
+.cmp-all { grid-column: 2 / -1; }
 
 /* slide-4 — 배포 용량 막대 */
 .sizebar { display: flex; align-items: center; gap: 16px; }
@@ -38,25 +41,23 @@
 .sizebar .track span { display: block; height: 100%; border-radius: 7px; }
 .sizebar .sv { font-family: var(--mono); font-size: 18px; font-weight: 500; flex: 0 0 96px; text-align: right; }
 
-/* slide-5 — 온프레미스 구축: 확인 항목 + 이중화 구성도 */
-.chk { display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid var(--hairline); }
-.chk:first-child { border-top: 0; padding-top: 0; }
-.chk .ck { font-family: var(--mono); font-size: var(--type-micro); letter-spacing: 0.06em; color: var(--muted-weak); }
-.chk .cv { font-size: var(--type-body-sm); line-height: 1.45; color: var(--muted-strong); }
-.topo-panel {
-  background: rgba(220, 238, 177, 0.24); border: 1.5px solid var(--lime); border-radius: 20px;
-  padding: 26px 30px; display: flex; flex-direction: column; gap: 14px;
-}
-.topo-row { display: grid; gap: 14px; }
-.topo-grp { border: 1px dashed rgba(0, 0, 0, 0.18); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-.topo-grp .gk { font-family: var(--mono); font-size: var(--type-micro); letter-spacing: 0.04em; color: var(--muted); }
-.node {
-  background: #fff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 10px;
-  padding: 8px 14px; font-size: 19px; font-weight: 600; line-height: 1.3; text-align: center;
-}
-.node small { display: block; font-size: 15px; font-weight: 400; color: var(--muted); margin-top: 2px; }
-.node.hl { border-color: var(--ink); }
-.topo-link { text-align: center; font-family: var(--mono); font-size: var(--type-micro); color: var(--muted-weak); line-height: 1; }
+/* slide-5 — 이중화 구성도 (SVG). 좌측 열에 계층 라벨, 실선 = 요청 흐름, 점선 = 복제 · 공유 · 장애 전환 */
+.arch { width: 100%; height: auto; max-height: 100%; font-family: var(--sans); }
+.arch .band { fill: var(--surface); }
+.arch .tl { font-family: var(--mono); font-size: 15px; letter-spacing: 0.06em; fill: var(--muted); dominant-baseline: middle; }
+.arch .grp { fill: rgba(255, 255, 255, 0.6); stroke: rgba(0, 0, 0, 0.2); stroke-dasharray: 5 4; }
+.arch .gk { font-family: var(--mono); font-size: 15px; letter-spacing: 0.03em; fill: var(--muted); }
+.arch .nd { fill: #fff; stroke: rgba(0, 0, 0, 0.14); }
+.arch .nd.hl { fill: var(--lime); stroke: rgba(0, 0, 0, 0.55); }
+.arch .nt { font-size: 19px; font-weight: 600; fill: var(--ink); text-anchor: middle; dominant-baseline: middle; }
+.arch .ns { font-size: 15px; fill: var(--muted); text-anchor: middle; dominant-baseline: middle; }
+.arch .ln { fill: none; stroke: #222; stroke-width: 2; }
+.arch .ld { fill: none; stroke: #8a8a8a; stroke-width: 1.6; stroke-dasharray: 6 5; }
+.arch .al { font-family: var(--mono); font-size: 14px; fill: var(--muted-strong); text-anchor: middle; }
+.arch .lg { font-size: 15px; fill: var(--muted); dominant-baseline: middle; }
+.arch .eos { fill: rgba(220, 238, 177, 0.45); stroke: var(--lime); stroke-width: 1.5; }
+.arch .eb { font-size: 30px; font-weight: 650; fill: var(--ink); }
+.arch .es { font-size: 17px; fill: var(--muted-strong); }
 
 /* slide-6 — 보안 계층 */
 .layer {
