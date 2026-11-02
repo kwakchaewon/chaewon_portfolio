@@ -1,6 +1,6 @@
 # 곽채원 · 포트폴리오
 
-> 기록하고 공유하는 개발자 곽채원의 웹 포트폴리오입니다.
+> 비효율을 찾아내 표준으로 만드는 4년차 개발자 곽채원의 웹 포트폴리오입니다.
 
 **🔗 Live — [kwakchaewon.github.io/chaewon_portfolio](https://kwakchaewon.github.io/chaewon_portfolio/)**
 
@@ -13,15 +13,27 @@
 ### Experience
 | 기간 | 소속 | 역할 |
 | --- | --- | --- |
-| 2024.02 – 현재 | 이든티앤에스 기술연구소 | 백엔드 · 외부 고객 기술 지원 |
-| 2023 | KT AIVLE School | 수료 |
-| 2019.08 – 2020.08 | 태화이노베이션 SI 3팀 | — |
+| 2024.02 – 현재 | 이든티앤에스 AX-A 개발본부 | 대리 · 백엔드 · 고객사 구축 · 기술 지원 |
+| 2023.02 – 2023.07 | KT AIVLE School | AI 개발자 트랙 수료 |
+| 2019.11 – 2020.10 | 태화이노베이션 SI 사업부 | 사원 · K 은행 SI 유지보수 |
 
 ### Projects
 | # | 프로젝트 | 기간 | 요약 |
 | --- | --- | --- | --- |
-| 01 | 표준 Oracle 환경 대응 리팩토링 | 2024.04 – 2025.11 | MariaDB + MyBatis → JPA + QueryDSL 전환. Java · Oracle · MariaDB 호환 데이터 타입 설계, 동적 쿼리 표준화, 통계·집계 스케줄러 500건 단위 flush·clear 적용(메모리 400MB 이내 유지)으로 DB 교체 시 수정 범위 축소 |
-| 02 | RPM · Inno Setup 기반 설치 패키지 표준화 | 2025.01 – 2025.04<br>2026.06 – 2026.08 | [Windows] Inno Setup 7 단일 .exe로 설치·업데이트·IP/포트 변경·언인스톨 라이프사이클 전 구간 관리(PowerShell · NSSM 서비스 등록), [Linux] rpmbuild 기반 8개 OS 대상 설치 자동화. 설치·장애 대응 비용 90% 이상 절감, 배포 용량 53% 최적화(1,893MB → 887MB) |
+| 01 | 표준 Oracle 환경 대응 리팩토링 | 2024.04 – 2024.11 | MariaDB + MyBatis 기반 API · 스케줄러 200개 이상을 JPA + QueryDSL로 전환. Java · Oracle · MariaDB 호환 데이터 타입 설계, 동적 쿼리 표준화, 통계·집계 스케줄러 500건 단위 flush·clear 적용(메모리 400MB 이내 유지). Oracle 환경 지원으로 K사 첫 수주 |
+| 02 | RPM · Inno Setup 기반 설치 패키지 표준화 | 2024.12 – 현재 | Flyway 마이그레이션 이력 관리, [Linux] rpmbuild 기반 8개 OS 설치 자동화 · 폐쇄망 docker save/load 반입, [Windows] Inno Setup 7 단일 .exe 라이프사이클 관리 · 설치 전 34개 항목 자동 점검. 설치·장애 대응 비용 90% 이상 절감, 배포 용량 53% 최적화(1,893MB → 887MB) |
+| 02 | 23개 고객사 온프레미스 구축 | 2024.12 – 현재 | 금융 · 대기업 · 공공 · 연구기관 23개 고객사 구축. 설치 조건 · 용량 · 정책 기준 표준 구성안, C사 이중화(로드밸런서 VIP · WEB/WAS 2대 · NAS · Redis Sentinel 3대 · DB Active/Standby), MySQL 8.0 → 8.4 EOS 대응 전환 |
+| 03 | 보안 취약점 대응 | 2025.07 – 2025.12 | 「주요정보통신기반시설 기술적 취약점 분석·평가 방법(2021)」 기준으로 Web · WAS · DB · OS 4개 계층 취약점 70건 이상 조치, 납품용 보안 증빙 자료 표준화 |
+
+### AX 업무 전환 케이스
+
+| # | 영역 | 주요 성과 | 요약 |
+| --- | --- | --- | --- |
+| 01 | 사내 문서 검색 RAG 파이프라인 (직접 개발) | Qdrant 하이브리드 검색 | dense(4096차원) + BM25 하이브리드, 표준 payload 24개 필드, uuid5 멱등 적재, 임베딩 서버 헬스체크 · 자동 재시작 (Python) |
+| 02 | OpenKB 기반 사내 지식 위키 전환 | 문서 1,252건 지식화 | 조각난 문맥 문제로 벡터 RAG에서 LLM 위키 방식으로 전환, 골든셋 + LLM 심판 2단계 평가로 기존·신규 KB A/B 비교 |
+| 03 | 스킬 · 템플릿 기반 업무 표준화 | 커밋 컨벤션 위반 25% → 3% · 입력 토큰 40% 절감 · 문서 작성 20~30분 → 5분 | auto-commit · create-pr · write-release-note 스킬, Notion MCP 기반 고객사 히스토리 · 릴리즈 노트 자동 작성, Claude Design 디자인 시스템 → Vue 공통 컴포넌트 |
+
+<br>2026.06 – 2026.08 | [Windows] Inno Setup 7 단일 .exe로 설치·업데이트·IP/포트 변경·언인스톨 라이프사이클 전 구간 관리(PowerShell · NSSM 서비스 등록), [Linux] rpmbuild 기반 8개 OS 대상 설치 자동화. 설치·장애 대응 비용 90% 이상 절감, 배포 용량 53% 최적화(1,893MB → 887MB) |
 | 03 | 보안 취약점 대응 | 2025.08 – 2025.12 | 「주요정보통신기반시설 기술적 취약점 분석·평가 방법(2021)」 기준으로 Web · WAS · DB · OS 4개 계층 점검 및 조치 |
 
 ### AX 업무 전환 케이스
@@ -44,7 +56,9 @@
 | Infra | Docker, Jenkins, RPM, Inno Setup, Apache, AWS, Redis, Qdrant |
 | Tool | Claude Code & Design, Notion, Git |
 
-**Certification** · 정보처리기사 · SQLD · AWS Solutions Architect Associate · 컴퓨터활용능력 1급 · 1종 보통운전면허
+**Certification** · AWS Solutions Architect Associate (2026.09) · 정보처리기사 (2025.09) · SQLD (2021.03) · 컴퓨터활용능력 1급 (2020.12) · 1종 보통운전면허
+
+**AWS** · QuSign 직접 배포·운영 · GitHub Actions → ECR → EC2 · EventBridge + Lambda 야간 정지로 비용 33% 절감
 
 **Awards** · AIVLE 빅프로젝트 장려상 · 순천향대 독후감 스피치 대회 장려상 · 우수 사회복무요원 표창
 
@@ -54,7 +68,7 @@
 
 ```
 .
-├── index.html              # 슬라이드 마크업 (7장)
+├── index.html              # 슬라이드 마크업 (9장)
 ├── css/
 │   ├── fonts.css           # Pretendard · JetBrains Mono @font-face
 │   ├── design-system.css   # 디자인 토큰 · 텍스트 프리미티브 · 모션
