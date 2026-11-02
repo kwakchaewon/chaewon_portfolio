@@ -230,57 +230,49 @@
   <!-- ============================ SLIDE 4 — PROJECT 02 · 설치 패키지 표준화 ============================ -->
   <section data-label="프로젝트 02">
     <div class="frame" style="--sig: var(--mint);">
-      <div style="display: flex; flex-direction: column; gap: 22px; margin-bottom: 40px;">
-        <p class="eyebrow anim" style="--d:.2s;"><span class="dot"></span>PROJECT 02 · 2024.12 – 현재</p>
-        <h1 class="display anim" style="--d:.32s;">RPM · Inno Setup 기반 <span class="nowrap">설치 패키지 표준화</span></h1>
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 40px;">
+        <div style="display: flex; flex-direction: column; gap: 22px;">
+          <p class="eyebrow anim" style="--d:.2s;"><span class="dot"></span>PROJECT 02 · 2024.12 – 현재</p>
+          <h1 class="display anim" style="--d:.32s; text-wrap: nowrap;">RPM · Inno Setup 기반 설치 패키지 표준화</h1>
+        </div>
+        <div class="tile sm scin" style="--tile: var(--mint); --d:1.3s; flex: 0 0 256px; min-height: 168px;">
+          <div class="num"><span class="countup" data-target="90" data-delay="1400">0</span><span class="suffix">%+</span></div>
+          <div class="label">설치 · 장애 대응<br>비용 절감</div>
+        </div>
       </div>
 
-      <div style="flex: 1 1 auto; display: grid; grid-template-columns: 64fr 36fr; gap: 48px;">
-        <!-- left: RPM vs Inno Setup 비교 -->
-        <div class="cmp scin" style="--d:.5s;">
-          <span></span>
-          <div class="cmp-h"><span class="glabel" style="--sig: var(--mint);">LINUX · RPM</span><span class="cmp-sub">rpmbuild · RHEL 계열 8개 OS</span></div>
-          <div class="cmp-h"><span class="glabel" style="--sig: var(--mint);">WINDOWS · INNO SETUP 7</span><span class="cmp-sub">단일 .exe · PowerShell · NSSM</span></div>
+      <!-- RPM vs Inno Setup 비교 -->
+      <div class="cmp scin" style="--d:.5s; flex: 1 1 auto;">
+        <span></span>
+        <div class="cmp-h"><span class="glabel" style="--sig: var(--mint);">LINUX · RPM</span><span class="cmp-sub">rpmbuild · RHEL 계열 6개 OS</span></div>
+        <div class="cmp-h"><span class="glabel" style="--sig: var(--mint);">WINDOWS · INNO SETUP 7</span><span class="cmp-sub">단일 .exe · PowerShell · NSSM</span></div>
 
-          <span class="cmp-k">사전 점검</span>
-          <span class="cmp-v">%pre 스크립트로 OS · 디스크 · 포트 검증</span>
-          <span class="cmp-v">관리자 권한 · 방화벽 등 <b>34개 항목</b> 자동 검증</span>
+        <span class="cmp-k">공통</span>
+        <span class="cmp-v cmp-all">Flyway로 DB 마이그레이션 이력 관리</span>
 
-          <span class="cmp-k">설치</span>
-          <span class="cmp-v">%post로 이미지 로드 → 컨테이너 실행<br>→ 초기 데이터 적재</span>
-          <span class="cmp-v">구성 요소 배포 후 NSSM 서비스 등록</span>
+        <span class="cmp-k">사전 점검</span>
+        <span class="cmp-v">%pre 스크립트로 OS · 디스크 · 포트 검증</span>
+        <span class="cmp-v">관리자 권한 · 방화벽 등 <b>34개 항목</b> 자동 검증</span>
 
-          <span class="cmp-k">업데이트</span>
-          <span class="cmp-v">rpm -Uvh · 필요한 마이그레이션만 적용</span>
-          <span class="cmp-v">기존 설치 감지 · 설정 유지 후 새 버전 교체</span>
+        <span class="cmp-k">설치</span>
+        <span class="cmp-v">%post로 이미지 로드 → 컨테이너 실행 → 초기 데이터 적재</span>
+        <span class="cmp-v">구성 요소 배포 후 NSSM 서비스 등록</span>
 
-          <span class="cmp-k">설정 변경</span>
-          <span class="cmp-v cmp-na">—</span>
-          <span class="cmp-v">재설치 없이 IP · 포트 변경 후 서비스 재시작</span>
+        <span class="cmp-k">업데이트</span>
+        <span class="cmp-v cmp-na">—</span>
+        <span class="cmp-v">기존 설치 감지 · 설정 유지 후 새 버전 교체</span>
 
-          <span class="cmp-k">제거</span>
-          <span class="cmp-v">%preun · %postun으로 중지 · 정리</span>
-          <span class="cmp-v">서비스 해제와 설치 파일 정리까지 한 번에</span>
+        <span class="cmp-k">설정 변경</span>
+        <span class="cmp-v cmp-na">—</span>
+        <span class="cmp-v">재설치 없이 IP · 포트 변경 후 서비스 재시작</span>
 
-          <span class="cmp-k">공통</span>
-          <span class="cmp-v cmp-all">Flyway로 DB 마이그레이션 이력 관리 · 폐쇄망은 docker save / load로 이미지 반입</span>
-        </div>
+        <span class="cmp-k">제거</span>
+        <span class="cmp-v">%preun · %postun으로 컨테이너 중지 · 파일 정리</span>
+        <span class="cmp-v">서비스 해제와 설치 파일 정리까지 한 번에</span>
 
-        <!-- right: 지표 -->
-        <div style="display: flex; flex-direction: column; gap: 16px;">
-          <div class="tile sm scin" style="--tile: var(--mint); --d:1.3s; flex: 1 1 0;">
-            <div class="num"><span class="countup" data-target="90" data-delay="1400">0</span><span class="suffix">%+</span></div>
-            <div class="label">설치 · 장애 대응 비용 절감</div>
-          </div>
-          <div class="tile sm scin" style="--tile: var(--mint); --d:1.45s; flex: 1 1 0;">
-            <div class="num"><span class="countup" data-target="53" data-delay="1600">0</span><span class="suffix">%</span></div>
-            <div class="label">Windows 배포 용량 절감</div>
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-              <div class="sizebar"><span class="sk">BEFORE</span><span class="track"><span style="width: 100%; background: rgba(0,0,0,.18);"></span></span><span class="sv">1,893MB</span></div>
-              <div class="sizebar"><span class="sk">AFTER</span><span class="track"><span style="width: 46.9%; background: var(--ink);"></span></span><span class="sv">887MB</span></div>
-            </div>
-          </div>
-        </div>
+        <span class="cmp-k">비고</span>
+        <span class="cmp-v cmp-na">—</span>
+        <span class="cmp-v">배포 용량 <b>53% 절감</b> · 1,893MB → 887MB</span>
       </div>
 
       <p class="kicker anim" style="--d:2.0s; margin-top: 32px;">누구나 <span class="mark">설치부터 제거까지</span> 가능하도록 <span class="mark">표준화</span>했습니다.</p>
@@ -291,7 +283,7 @@
   <section data-label="프로젝트 02 · 구축">
     <div class="frame" style="--sig: var(--lime);">
       <div style="display: flex; flex-direction: column; gap: 22px; margin-bottom: 36px;">
-        <p class="eyebrow anim" style="--d:.2s;"><span class="dot"></span>PROJECT 02 · ON-PREMISE · 2024.12 – 현재</p>
+        <p class="eyebrow anim" style="--d:.2s;"><span class="dot"></span>PROJECT 02 · 2024.12 – 현재</p>
         <h1 class="display anim" style="--d:.32s;">C사 MySQL EOS 대응 전환 및 <span class="nowrap">이중화 구성</span></h1>
       </div>
 
@@ -390,7 +382,7 @@
         </div>
       </div>
 
-      <p class="kicker anim" style="--d:1.95s; margin-top: 32px;">납품용 <span class="mark">보안 증빙 자료</span>를 처음 만들고 표준화했습니다.</p>
+      <p class="kicker anim" style="--d:1.95s; margin-top: 32px;">4개 계층의 <span class="mark">보안 기준</span>을 세우고 <span class="mark">증빙 대응 체계</span>를 수립했습니다.</p>
     </div>
   </section>
 
@@ -418,7 +410,6 @@
           <p class="caption" style="color: var(--muted);">2020.08 – 2020.10</p>
           <p class="headline">디지털서식관리시스템 고도화</p>
           <ul class="ax-list">
-            <li>IT 테스트 · <span class="nowrap">요구사항 기준 시나리오 검증</span>과 결함 재테스트</li>
             <li>퇴직연금 <span class="nowrap">고객용 태블릿 서식 화면 4건</span> 개발</li>
             <li>컴포넌트 속성 기반 입력값 검증 · <span class="nowrap">조건부 필수 항목 처리</span></li>
           </ul>
@@ -426,7 +417,7 @@
         </div>
       </div>
 
-      <p class="kicker anim" style="--d:1.3s; margin-top: 36px;">은행 Oracle 환경과 <span class="mark" style="--sig: #e9d9a8;">금융 SI 절차</span>를 처음 익혔습니다.</p>
+      <p class="kicker anim" style="--d:1.3s; margin-top: 36px;"><span class="mark" style="--sig: #e9d9a8;">폐쇄망</span>과 <span class="mark" style="--sig: #e9d9a8;">금융권 SI 프로젝트</span>를 경험했습니다.</p>
     </div>
   </section>
 

@@ -21,14 +21,14 @@
 /* slide-4 — RPM · Inno Setup 비교표 */
 .cmp {
   background: rgba(200, 230, 205, 0.22); border: 1.5px solid var(--mint); border-radius: 20px;
-  padding: 26px 30px; display: grid; grid-template-columns: 112px 1fr 1fr; column-gap: 24px; align-content: start;
+  padding: 26px 30px; display: grid; grid-template-columns: 140px 1fr 1fr; column-gap: 24px; align-content: start;
 }
-.cmp > * { padding: 16px 0; border-top: 1px solid rgba(0, 0, 0, 0.07); }
+.cmp > * { padding: 12px 0; border-top: 1px solid rgba(0, 0, 0, 0.07); }
 .cmp > :nth-child(-n+3) { border-top: 0; padding-top: 0; }
 .cmp-h { display: flex; flex-direction: column; gap: 10px; }
 .cmp-h .glabel { font-size: 19px; }
 .cmp-sub { font-family: var(--mono); font-size: var(--type-micro); letter-spacing: 0.04em; color: var(--mint-ink); }
-.cmp-k { font-family: var(--mono); font-size: var(--type-caption-sm); letter-spacing: 0.06em; color: var(--muted); padding-top: 19px; }
+.cmp-k { font-family: var(--mono); font-size: var(--type-caption-sm); letter-spacing: 0.06em; color: var(--muted); padding-top: 15px; }
 .cmp-v { font-size: 21px; line-height: 1.45; color: var(--muted-strong); word-break: keep-all; }
 .cmp-v b { font-weight: 650; color: var(--ink); }
 .cmp-na { color: var(--muted-weak); }
