@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="웹 개발, 설치 패키지 표준화와 온프레미스 구축, 보안 취약점 개선, Claude 기반 AI 활용까지 — 비효율을 찾아내 표준으로 만드는 4년차 개발자 곽채원의 포트폴리오입니다.">
+<meta name="description" content="웹 개발, 설치 패키지 표준화와 온프레미스 구축, 보안 취약점 개선까지 — 비효율을 찾아내 표준으로 만드는 4년차 개발자 곽채원의 포트폴리오입니다.">
 <meta name="author" content="곽채원">
 <meta name="theme-color" content="#c5b0f4">
 <link rel="canonical" href="https://kwakchaewon.github.io/chaewon_portfolio/">
@@ -12,14 +12,14 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://kwakchaewon.github.io/chaewon_portfolio/">
 <meta property="og:title" content="곽채원 · 포트폴리오">
-<meta property="og:description" content="웹 개발, 설치 패키지 표준화와 온프레미스 구축, 보안 취약점 개선, Claude 기반 AI 활용까지 — 비효율을 찾아내 표준으로 만드는 4년차 개발자 곽채원의 포트폴리오입니다.">
+<meta property="og:description" content="웹 개발, 설치 패키지 표준화와 온프레미스 구축, 보안 취약점 개선까지 — 비효율을 찾아내 표준으로 만드는 4년차 개발자 곽채원의 포트폴리오입니다.">
 <meta property="og:image" content="https://kwakchaewon.github.io/chaewon_portfolio/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="기록하고 공유하는 개발자 곽채원">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="곽채원 · 포트폴리오">
-<meta name="twitter:description" content="웹 개발, 설치 패키지 표준화와 온프레미스 구축, 보안 취약점 개선, Claude 기반 AI 활용까지 — 비효율을 찾아내 표준으로 만드는 4년차 개발자 곽채원의 포트폴리오입니다.">
+<meta name="twitter:description" content="웹 개발, 설치 패키지 표준화와 온프레미스 구축, 보안 취약점 개선까지 — 비효율을 찾아내 표준으로 만드는 4년차 개발자 곽채원의 포트폴리오입니다.">
 <meta name="twitter:image" content="https://kwakchaewon.github.io/chaewon_portfolio/assets/og-image.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -420,66 +420,7 @@
     </div>
   </section>
 
-  <!-- ============================ SLIDE 8 — AI 활용 ============================ -->
-  <section data-label="AI 활용">
-    <div class="frame" style="--sig: var(--lilac);">
-      <div style="display: flex; flex-direction: column; gap: 22px; margin-bottom: 40px;">
-        <p class="eyebrow anim" style="--d:.2s;"><span class="dot"></span>AI · CLAUDE 활용</p>
-        <h1 class="display anim" style="--d:.32s;"><span class="nowrap">AI 활용 케이스</span></h1>
-      </div>
-
-      <div class="ax-grid" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: auto minmax(300px, auto);">
-        <div class="ax-card scin" style="--sig: var(--lilac); --d:.5s;">
-          <div class="ax-top">
-            <span class="ax-k">01 · RAG PIPELINE · 직접 개발</span>
-            <p class="ax-head">사내 문서 검색<br>RAG 파이프라인 개발</p>
-          </div>
-          <div class="ax-body">
-            <ul class="ax-list">
-              <li>Qdrant 하이브리드 검색 <span class="nowrap">(dense 4096차원 + BM25)</span></li>
-              <li>Notion · Teams · 소스 수집, <span class="nowrap">표준 payload 24개 필드</span></li>
-              <li>uuid5 멱등 적재 · <span class="nowrap">임베딩 서버 헬스체크 자동 재시작</span></li>
-            </ul>
-            <div class="chips ax-chips"><span class="chip mono sm">Python</span><span class="chip mono sm">Qdrant</span><span class="chip mono sm">vLLM</span></div>
-          </div>
-        </div>
-
-        <div class="ax-card scin" style="--sig: var(--mint); --d:.62s;">
-          <div class="ax-top">
-            <span class="ax-k">02 · OPENKB · NORAG</span>
-            <p class="ax-head">OpenKB 기반<br>사내 지식 위키 전환</p>
-          </div>
-          <div class="ax-body">
-            <ul class="ax-list">
-              <li>조각난 문맥 문제로 벡터 RAG에서 <span class="nowrap">LLM 위키 방식으로 전환</span></li>
-              <li>사내 문서 <span class="nowrap">1,252건 지식화</span></li>
-              <li>골든셋 + LLM 심판 2단계 평가로 <span class="nowrap">기존·신규 KB A/B 비교</span></li>
-            </ul>
-            <div class="chips ax-chips"><span class="chip mono sm">OpenKB</span><span class="chip mono sm">Markdown Wiki</span></div>
-          </div>
-        </div>
-
-        <div class="ax-card scin" style="--sig: var(--lime); --d:.74s;">
-          <div class="ax-top">
-            <span class="ax-k">03 · SKILLS · TEMPLATE</span>
-            <p class="ax-head">스킬 · 템플릿 기반<br>업무 표준화</p>
-          </div>
-          <div class="ax-body">
-            <ul class="ax-list">
-              <li><span class="nowrap">auto-commit</span> · <span class="nowrap">create-pr</span> · <span class="nowrap">write-release-note</span> 스킬로 개발 사이클 표준화, <span class="nowrap">입력 토큰 40% 절감</span></li>
-              <li>Notion MCP로 <span class="nowrap">고객사 히스토리 · 릴리즈 노트</span> 자동 작성</li>
-              <li>Claude Design 디자인 시스템 → <span class="nowrap">Vue 공통 컴포넌트</span></li>
-            </ul>
-            <div class="chips ax-chips"><span class="chip mono sm">Claude Code</span><span class="chip mono sm">Notion MCP</span><span class="chip mono sm">Claude Design</span></div>
-          </div>
-        </div>
-      </div>
-
-      <p class="kicker anim" style="--d:1.4s; margin-top: 32px;">커밋 컨벤션 위반 <span class="mark">25% → 3%</span>, 문서 작성 <span class="mark">20~30분 → 5분</span>으로 줄였습니다.</p>
-    </div>
-  </section>
-
-  <!-- ============================ SLIDE 9 — 마무리 ============================ -->
+  <!-- ============================ SLIDE 8 — 마무리 ============================ -->
   <section data-label="마무리">
     <div class="frame" style="align-items: center; justify-content: center; text-align: center;">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 28px;">
